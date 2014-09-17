@@ -132,7 +132,7 @@ class MainWindow(Gtk.Window):
             model, treeiter = selection.get_selected()
             if treeiter != None: # Runs block only when something is selected
                 self.selected['name'] = model[treeiter][0]
-                print("You selected", self.selected['name']) # Comment out or delete
+                #~ print("You selected", self.selected['name']) # Comment out or delete
                 self.readconfig()
                 self.sourcefield.set_filename(self.selected['source'])
                 self.destinationfield.set_filename(self.selected['dest'])
@@ -174,7 +174,8 @@ class MainWindow(Gtk.Window):
         dialog = RunningWindow(self)
         response = dialog.run()
         if response in [Gtk.ResponseType.OK, Gtk.ResponseType.CANCEL]:
-            print("backup done") # change to pass
+            pass
+            #~ print("backup done") # comment out
         dialog.destroy()
 
     def save(self,savebutton):
@@ -292,7 +293,7 @@ class RunningWindow(Gtk.Dialog):
         args = [sudoarg+"rsync", "-avWhx", "--progress", "--stats", parent.readybackup["options"], hardlinkarg,
                 '--log-file="'+parent.logspath+parent.readybackup["name"]+'backup.txt"',
                 '"'+parent.readybackup["source"]+'"', '"'+self.newbackuppath+'"']
-        print(' '.join(args)) #Comment out
+        #~ print(' '.join(args)) #Comment out
         command = ' '.join(args)+'; exit\n' # Added 'exit' to trigger exit signal
         length = len(command) # Null terminates command
         self.terminal.feed_child(command, length) # Inputs command into terminal
