@@ -290,7 +290,7 @@ class RunningWindow(Gtk.Dialog):
             sudoarg = "sudo "
         else:
             sudoarg = ""
-        args = [sudoarg+"rsync", "-avWhx", "--progress", "--stats", parent.readybackup["options"], hardlinkarg,
+        args = [sudoarg+"rsync", "-avWh", "--progress", "--stats", parent.readybackup["options"], hardlinkarg,
                 '--log-file="'+parent.logspath+parent.readybackup["name"]+'backup.txt"',
                 '"'+parent.readybackup["source"]+'"', '"'+self.newbackuppath+'"']
         #~ print(' '.join(args)) #Comment out

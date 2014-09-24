@@ -69,7 +69,6 @@ The following Rsync options are enabled by default:
 * Verbose with progress, adding information and status to the virtual terminal so you can watch progress.
 * Performs whole file copies, without delta-transfer algorithm.
 * File sizes in logs and terminal are in human readable format.
-* does not cross filesystem boundaries, which means it will not attempt to traverse through mounted drives.
 * Stats are included in the output, so you can see additional information upon completion, such as number of files transferred, etc.
 * Uses the latest backup as a hard link when unchanged. See discussion above.
 * Log file generated in ~/.config/frakkup/logs
